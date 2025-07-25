@@ -3,7 +3,7 @@ import { supabase } from "../../lib/supabase";
 import Layout from "../../components/Layout";
 import { useSession } from "@supabase/auth-helpers-react";
 import { usePlayer } from "../../context/PlayerContext"; // импортируем хук
-import cover1 from "../Home/img/cover1.jpg";
+import cover1 from '../home/img/cover1.jpg'
 import styles from "./favorite.module.css";
 
 interface Track {
