@@ -1,0 +1,425 @@
+/* Messenger.module.css */
+
+:root {
+  --primary: #6c5ce7;
+  --primary-light: #a29bfe;
+  --secondary: #00cec9;
+  --dark: #1e272e;
+  --darker: #0f1519;
+  --light: #f5f6fa;
+  --glass: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-highlight: rgba(255, 255, 255, 0.2);
+}
+
+/* Общие стили */
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Основной контейнер */
+.chatContainer, .messengerList {
+  position: relative;
+  height: 100%;
+  background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 100%);
+  color: var(--light);
+  overflow: hidden;
+}
+
+.messengerList {
+  display: flex;
+  flex-direction: column;
+  background: var(--darker);
+}
+
+/* Градиент сверху */
+.topGradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: linear-gradient(to bottom, rgba(108, 92, 231, 0.3) 0%, transparent 100%);
+  z-index: 0;
+}
+
+/* Шапки */
+.chatHeader, .listHeader {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  background: rgba(30, 39, 46, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--glass-border);
+  z-index: 10;
+}
+
+.listHeader h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* Аватары */
+.avatar, .avatarImage, .avatarPlaceholder {
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  background-color: var(--primary);
+  box-shadow: 0 0 0 2px var(--primary-light);
+}
+
+.avatarImage, .avatarPlaceholder {
+  width: 48px;
+  height: 48px;
+  background: var(--glass);
+}
+
+.avatarPlaceholder {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+/* Кнопки */
+.actionButton, .newChatButton, .attachmentButton, .sendButton {
+  background: none;
+  border: none;
+  color: var(--light);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.actionButton {
+  padding: 4px;
+  opacity: 0.7;
+}
+
+.actionButton:hover {
+  opacity: 1;
+  background: var(--glass);
+}
+
+.newChatButton {
+  width: 32px;
+  height: 32px;
+  background: var(--primary);
+  color: white;
+}
+
+.newChatButton:hover {
+  background: var(--primary-light);
+  transform: rotate(90deg);
+}
+
+.attachmentButton, .sendButton {
+  width: 36px;
+  height: 36px;
+  opacity: 0.7;
+}
+
+.attachmentButton:hover, 
+.sendButton:not(:disabled):hover {
+  opacity: 1;
+  background: var(--glass-highlight);
+}
+
+.sendButton:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* Сообщения */
+.messagesList {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.messageIncoming, .messageOutgoing {
+  max-width: 75%;
+  padding: 12px 16px;
+  border-radius: 18px;
+  position: relative;
+  line-height: 1.4;
+  animation: messageAppear 0.3s ease-out;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.messageIncoming {
+  align-self: flex-start;
+  background: linear-gradient(135deg, var(--glass) 0%, rgba(108, 92, 231, 0.1) 100%);
+  border: 1px solid var(--glass-border);
+  border-bottom-left-radius: 4px;
+}
+
+.messageOutgoing {
+  align-self: flex-end;
+  background: linear-gradient(135deg, rgba(108, 92, 231, 0.3) 0%, rgba(0, 206, 201, 0.2) 100%);
+  border: 1px solid rgba(108, 92, 231, 0.3);
+  border-bottom-right-radius: 4px;
+}
+
+.messageContent {
+  margin-bottom: 4px;
+}
+
+.messageMeta {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+  font-size: 11px;
+  opacity: 0.8;
+}
+
+.messageStatus {
+  color: var(--secondary);
+}
+
+/* Поле ввода */
+.messageInputContainer {
+  position: relative;
+  padding: 16px;
+  background: rgba(30, 39, 46, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-top: 1px solid var(--glass-border);
+  z-index: 10;
+}
+
+.messageInput {
+  display: flex;
+  align-items: center;
+  background: var(--glass);
+  border-radius: 24px;
+  padding: 8px 16px;
+  border: 1px solid var(--glass-border);
+  transition: all 0.3s ease;
+}
+
+.messageInput:focus-within {
+  border-color: var(--primary-light);
+  box-shadow: 0 0 0 2px rgba(108, 92, 231, 0.2);
+}
+
+.messageTextarea {
+  flex-grow: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  resize: none;
+  font-family: inherit;
+  color: var(--light);
+  padding: 8px 12px;
+  max-height: 120px;
+  line-height: 1.4;
+}
+
+.messageTextarea::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* Списки чатов */
+.chatList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.chatItem {
+  border-bottom: 1px solid var(--glass-border);
+  transition: background 0.2s ease;
+}
+
+.chatItem:hover {
+  background: rgba(108, 92, 231, 0.05);
+}
+
+.activeChat {
+  background: rgba(108, 92, 231, 0.1) !important;
+}
+
+.chatLink {
+  display: flex;
+  padding: 12px 16px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.avatarContainer {
+  position: relative;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.notificationBadge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 12px;
+  height: 12px;
+  background: var(--secondary);
+  border-radius: 50%;
+  border: 2px solid var(--darker);
+}
+
+.chatInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.username {
+  margin: 0;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.chatHeader .username {
+  font-size: 15px;
+}
+
+.chatTitle .username {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.time {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
+  flex-shrink: 0;
+  margin-left: 8px;
+}
+
+.lastMessage {
+  margin: 0;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.7);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.status {
+  font-size: 12px;
+  color: var(--secondary);
+  margin-top: 2px;
+}
+
+/* Состояния */
+.loadingContainer, .emptyStateContainer, .emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+}
+
+.emptyStateContainer {
+  opacity: 0.6;
+}
+
+.emptyState {
+  padding: 20px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.emptyState h3 {
+  margin: 0 0 8px;
+  font-size: 18px;
+  color: var(--light);
+}
+
+.emptyState p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.emptyIllustration {
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle, var(--glass) 0%, transparent 70%);
+  border-radius: 50%;
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.emptyIllustration::before {
+  content: "";
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  right: 30px;
+  bottom: 30px;
+  background: var(--glass);
+  border-radius: 50%;
+}
+
+/* Анимации */
+@keyframes messageAppear {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner, .sendButtonSpinner {
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--glass);
+  border-top-color: var(--primary);
+}
+
+.sendButtonSpinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+}

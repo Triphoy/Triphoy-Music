@@ -1,0 +1,290 @@
+/* Upload.css */
+.upload-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #1E1E1E;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.upload-container h2 {
+  color: #1DB954;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.upload-steps {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+  gap: 1rem;
+}
+
+.step {
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  background: #2A2A2A;
+  color: #8C8C8C;
+  font-weight: 500;
+}
+
+.step.active {
+  background: #1DB954;
+  color: white;
+}
+
+.upload-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  color: #8C8C8C;
+  font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 12px;
+  border: 1px solid #2F2F2F;
+  border-radius: 8px;
+  background: #2A2A2A;
+  color: white;
+  font-size: 1rem;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #1DB954;
+}
+
+.form-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.form-row .form-group {
+  flex: 1;
+}
+
+.checkbox-group {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.checkbox-group input {
+  width: auto;
+}
+
+.file-upload-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.file-upload-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.file-upload-group h3 {
+  margin: 0;
+  color: white;
+  font-size: 1.1rem;
+}
+
+.file-upload-group p {
+  margin: 0;
+  color: #8C8C8C;
+  font-size: 0.8rem;
+}
+
+.file-upload-button {
+  padding: 12px;
+  background: #2A2A2A;
+  color: white;
+  border: 1px dashed #4A4A4A;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+}
+
+.file-upload-button:hover {
+  border-color: #1DB954;
+  background: #333;
+}
+
+.cover-preview {
+  margin-top: 1rem;
+  width: 200px;
+  height: 200px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.cover-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.next-button,
+.back-button,
+.upload-button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.next-button,
+.upload-button {
+  background: #1DB954;
+  color: white;
+}
+
+.next-button:hover,
+.upload-button:hover {
+  background: #1ED760;
+}
+
+.back-button {
+  background: #2A2A2A;
+  color: white;
+}
+
+.back-button:hover {
+  background: #333;
+}
+
+.upload-button:disabled {
+  background: #535353;
+  cursor: not-allowed;
+}
+
+.spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s ease-in-out infinite;
+  margin-right: 8px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.error-message {
+  color: #e74c3c;
+  background: #fadbd8;
+  padding: 12px;
+  border-radius: 8px;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.success-message {
+  color: #1DB954;
+  background: #d4edda;
+  padding: 12px;
+  border-radius: 8px;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.auth-message {
+  text-align: center;
+  padding: 2rem;
+  background: #2A2A2A;
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+
+.auth-message p {
+  margin-bottom: 1rem;
+  color: #8C8C8C;
+}
+
+.auth-button {
+  padding: 10px 20px;
+  background: #1DB954;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.auth-button:hover {
+  background: #1ED760;
+}
+/* Твой текущий CSS тут... */
+
+@media (max-width: 768px) {
+  .upload-container {
+    max-width: 90%; /* По ширине почти весь экран */
+    padding: 1rem;
+    margin: 1rem auto;
+  }
+
+  .upload-steps {
+    flex-direction: column; /* Стекутся вертикально */
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .form-row {
+    flex-direction: column; /* Поля под друг другом */
+    gap: 1rem;
+  }
+
+  .cover-preview {
+    width: 150px;
+    height: 150px;
+  }
+
+  .form-actions {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .next-button,
+  .back-button,
+  .upload-button {
+    width: 100%;
+    padding: 12px 0;
+    font-size: 1.1rem;
+  }
+}
+.disabled-input {
+  background-color: #222;
+  color: #999;
+  cursor: not-allowed;
+}

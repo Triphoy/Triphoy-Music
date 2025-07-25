@@ -1,0 +1,59 @@
+/* Подключение шрифта Montserrat */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+/* Сброс и базовые стили */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+  --bg-primary: #121212;
+  --bg-secondary: #fff;
+  --bg-tertiary: #fff;
+
+  --text-primary: #fff;
+  --text-secondary: #666;
+
+  --accent-primary: #6366f1; /* фиолетовый */
+  --border-color: #ddd;
+
+  --transition: 0.2s ease-in-out;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  transition: all var(--transition);
+  border: none;
+  background: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* Убираем фокус обводку */
+:focus {
+  outline: none;
+}
+

@@ -1,0 +1,147 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.contentBlock {
+  background: #1d1d1d;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.trackList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.trackItem {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  background: #f1f1f1;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+}
+
+.trackItem:hover {
+  background: #f1f3f5;
+  transform: translateY(-2px);
+}
+
+.trackCover {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  object-fit: cover;
+  margin-right: 16px;
+  background: #e9ecef;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #adb5bd;
+  font-size: 24px;
+}
+
+.trackInfo {
+  flex: 1;
+}
+
+.trackTitle {
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: #212529;
+}
+
+.trackMeta {
+  font-size: 13px;
+  color: #6c757d;
+  display: flex;
+  gap: 12px;
+}
+
+.trackActions {
+  display: flex;
+  gap: 8px;
+}
+
+.btn {
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btnDanger {
+  background: #ff6b6b;
+  color: white;
+}
+
+.btnDanger:hover {
+  background: #fa5252;
+}
+
+.loadingState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  color: #868e96;
+}
+
+.errorState {
+  background: #fff5f5;
+  color: #fa5252;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  border-left: 4px solid #ff6b6b;
+}
+
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  color: #868e96;
+  background: #f8f9fa;
+  border-radius: 12px;
+}
+
+.spinner {
+  width: 24px;
+  height: 24px;
+  border: 3px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  border-top-color: #495057;
+  animation: spin 1s ease-in-out infinite;
+  margin-bottom: 16px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

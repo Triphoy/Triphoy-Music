@@ -1,0 +1,1458 @@
+/* ========== Общие стили страницы ========== */
+.home-page {
+  padding: 32px;
+  color: white;
+}
+
+.home-page h1 {
+  font-size: 35px;
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+/* ========== Адаптивные карточки треков ========== */
+.cards-container {
+  display: flex;
+  gap: 16px;
+  margin-top: 24px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 16px;
+  scrollbar-width: none;
+  position: relative;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}
+
+.cards-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Адаптивные градиентные тени */
+.cards-container::before,
+.cards-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 30px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+
+.music-card {
+  flex: 0 0 auto;
+  width: calc(100vw - 32px);
+  max-width: 320px;
+  min-width: 240px;
+  background-color: #1E1E1E;
+  border: 1px solid #8C8C8C;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+  border-radius: 16px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  scroll-snap-align: start;
+}
+
+.music-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+  border-color: #1DB954;
+}
+
+.cover-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1/1;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(29, 185, 84, 0.8);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cover-wrapper:hover .play-button {
+  opacity: 1;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 18px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 4px;
+}
+
+.artist {
+  color: #8C8C8C;
+  font-size: 16px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 8px;
+}
+
+.duration {
+  font-size: 12px;
+  color: #8C8C8C;
+}
+
+.like-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 2;
+  color: #f81111;
+  transition: all 0.2s ease;
+}
+
+.like-button:hover {
+  background: rgba(0, 0, 0, 0.7);
+  transform: scale(1.1);
+}
+
+/* Кнопки навигации */
+.cards-navigation {
+  justify-content: end;
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.scroll-button {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.scroll-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* ========== Секция плейлистов ========== */
+.playlists-section {
+  margin-top: 60px;
+}
+
+.playlists-section h2 {
+  font-size: 28px;
+  margin-bottom: 24px;
+  font-weight: 600;
+}
+
+.playlists-container {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.playlist-card {
+  flex: 0 0 auto;
+  width: 300px;
+  background-color: #1E1E1E;
+  border-radius: 12px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  scroll-snap-align: start;
+}
+
+.playlist-card:hover {
+  transform: translateY(-5px);
+}
+
+.playlist-cover-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1/1;
+  margin-bottom: 12px;
+}
+
+.playlist-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.playlist-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background-color: #1DB954;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.playlist-info {
+  padding: 0 16px 16px;
+}
+
+.playlist-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.playlist-creator {
+  font-size: 14px;
+  color: #8C8C8C;
+  margin-bottom: 16px;
+}
+
+.playlist-stats {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.playlist-left-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.playlist-tracks {
+  background: #1DB954;
+  color: #fff;
+  padding: 5px 15px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.playlist-likes,
+.playlist-plays {
+  font-size: 13px;
+  color: #8C8C8C;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* ========== Секция артистов ========== */
+.artist-section {
+  margin-top: 60px;
+}
+
+.artist-section h2 {
+  font-size: 28px;
+  margin-bottom: 24px;
+  font-weight: 600;
+}
+
+.artist-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.artist-card {
+  flex: 0 0 auto;
+  width: 300px;
+  background-color: #1E1E1E;
+  border: 1px solid #8C8C8C;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+  border-radius: 20px;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  scroll-snap-align: start;
+}
+
+.artist-card:hover {
+  transform: translateY(-5px);
+}
+
+.artist-cover-wrapper {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 20px;
+  flex-shrink: 0;
+}
+
+.artist-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.artist-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.artist-name {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.artist-songs {
+  font-size: 14px;
+  color: #8C8C8C;
+  margin-bottom: 10px;
+}
+
+.artist-links {
+  display: flex;
+  gap: 10px;
+}
+
+.icon-spotify {
+  color: #1DB954;
+  font-size: 20px;
+  transition: transform 0.2s ease;
+}
+
+.icon-spotify:hover {
+  transform: scale(1.2);
+}
+
+.icon-yandex {
+  color: #FFCC00;
+  font-size: 20px;
+  transition: transform 0.2s ease;
+}
+
+.icon-yandex:hover {
+  transform: scale(1.2);
+}
+
+/* ========== Секция "На сегодня" ========== */
+.today-section {
+  margin-top: 60px;
+}
+
+.today-section h2 {
+  font-size: 28px;
+  margin-bottom: 24px;
+  font-weight: 600;
+}
+
+.today-cards {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.today-card {
+  flex: 0 0 auto;
+  width: 280px;
+  background-color: #1E1E1E;
+  border: 1px solid #8C8C8C;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+  border-radius: 20px;
+  padding: 20px;
+  position: relative;
+  cursor: pointer;
+  scroll-snap-align: start;
+}
+
+.today-card:hover {
+  transform: translateY(-5px);
+}
+
+.today-badge {
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  background-color: #1DB954;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  z-index: 1;
+}
+
+.today-cover-wrapper {
+  position: relative;
+  width: 100%;
+  height: 240px;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.today-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.today-card:hover .today-cover {
+  transform: scale(1.03);
+}
+
+.today-play-btn {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background-color: rgba(29, 185, 84, 0.9);
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.today-card:hover .today-play-btn {
+  opacity: 1;
+}
+
+.today-info {
+  padding: 0 8px;
+}
+
+.today-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.today-artist {
+  font-size: 16px;
+  color: #8C8C8C;
+  margin-bottom: 12px;
+}
+
+.today-stats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.today-duration {
+  font-size: 14px;
+  color: #8C8C8C;
+}
+
+.today-likes {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #8C8C8C;
+  font-size: 14px;
+}
+
+/* ========== Рекламный баннер ========== */
+.ad-section {
+  position: relative;
+  margin-top: 60px;
+  margin-bottom: 100px;
+}
+
+.ad-container {
+  background: linear-gradient(135deg, #1DB954 0%, #191414 100%);
+  border-radius: 20px;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  min-height: 200px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+.ad-content {
+  position: relative;
+  z-index: 2;
+  max-width: 60%;
+  color: white;
+}
+
+.ad-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.ad-text {
+  font-size: 16px;
+  margin-bottom: 20px;
+  line-height: 1.5;
+  opacity: 0.9;
+}
+
+.ad-button {
+  background: white;
+  color: #191414;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 24px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 14px;
+}
+
+.ad-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.ad-image {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+/* ========== Модальное окно ========== */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modal-content {
+  background: white;
+  padding: 25px 30px;
+  border-radius: 12px;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.modal-content h2 {
+  margin-bottom: 15px;
+  font-size: 22px;
+  color: #222;
+}
+
+.modal-content p {
+  margin-bottom: 25px;
+  font-size: 16px;
+  color: #444;
+}
+
+.modal-content a {
+  color: #1db954;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.modal-content a:hover {
+  text-decoration: underline;
+}
+
+.modal-close-button {
+  background-color: #1db954;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.modal-close-button:hover {
+  background-color: #17a94d;
+}
+
+
+/* Стили для секции мероприятий */
+.events-section {
+  margin: 40px 0;
+  width: 100%;
+}
+
+.events-section h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  color: #fff;
+  animation: fadeIn 0.8s ease-out;
+}
+
+.events-container {
+  width: 100%;
+  position: relative;
+  height: 400px; /* Увеличил высоту */
+}
+
+.event-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  background: linear-gradient(90deg, #1E3A8A 0%, #B91C1C 100%);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  transform: translateX(20px);
+}
+
+.event-card.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.event-content {
+  flex: 1;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 2;
+}
+
+.event-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  animation: slideInDown 0.6s 0.3s both;
+}
+
+.event-price {
+  background: white;
+  color: #000;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  transform: scale(0.9);
+  animation: popIn 0.4s 0.5s cubic-bezier(0.18, 0.89, 0.32, 1.28) both;
+}
+
+.event-badge {
+  background: #B91C1C;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 0.8rem;
+  transform: scale(0.9);
+  animation: popIn 0.4s 0.6s cubic-bezier(0.18, 0.89, 0.32, 1.28) both;
+}
+
+.event-info {
+  margin-top: auto;
+}
+
+.event-artist {
+  font-size: 3rem; /* Увеличил размер */
+  font-weight: 900;
+  margin: 0;
+  color: white;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+  line-height: 1;
+  transform: translateY(20px);
+  opacity: 0;
+  animation: slideInUp 0.6s 0.4s ease-out forwards;
+}
+
+.event-date {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 15px 0 0;
+  transform: translateY(20px);
+  opacity: 0;
+  animation: slideInUp 0.6s 0.5s ease-out forwards;
+}
+
+.event-image-wrapper {
+  width: 45%; /* Увеличил ширину */
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  padding-right: 40px; /* Отступ от края */
+}
+
+.event-image {
+  position: absolute;
+  right: 40px; /* Отступ от края */
+  height: 120%; /* Увеличил высоту */
+  object-fit: cover;
+  object-position: center;
+  filter: drop-shadow(-10px 0 20px rgba(0, 0, 0, 0.4));
+  transform: scale(0.95);
+  animation: zoomIn 0.8s 0.2s ease-out forwards;
+}
+
+/* Анимации */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInUp {
+  from { 
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to { 
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInDown {
+  from { 
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to { 
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes popIn {
+  0% { 
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  80% {
+    transform: scale(1.05);
+  }
+  100% { 
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes zoomIn {
+  from { 
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to { 
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .events-section {
+    margin: 20px 0;
+    width: 100%;
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+
+  .events-section h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    font-weight: 600;
+    color: #fff;
+    animation: fadeIn 0.8s ease-out;
+  }
+
+  .events-container {
+    width: 100%;
+    position: relative;
+    height: 300px; /* Увеличил высоту для отображения изображения */
+  }
+
+  .event-card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(90deg, #1E3A8A 0%, #B91C1C 100%);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    transform: translateX(15px);
+  }
+
+  .event-card.active {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .event-content {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+    flex: 1;
+  }
+
+  .event-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    animation: slideInDown 0.6s 0.3s both;
+  }
+
+  .event-price {
+    background: white;
+    color: #000;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-weight: bold;
+    font-size: 0.7rem;
+    transform: scale(0.9);
+    animation: popIn 0.4s 0.5s cubic-bezier(0.18, 0.89, 0.32, 1.28) both;
+  }
+
+  .event-badge {
+    background: #B91C1C;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 3px;
+    font-weight: bold;
+    font-size: 0.6rem;
+    transform: scale(0.9);
+    animation: popIn 0.4s 0.6s cubic-bezier(0.18, 0.89, 0.32, 1.28) both;
+  }
+
+  .event-info {
+    margin-top: auto; /* Изменил с 100px на auto для правильного расположения */
+    margin-bottom: 10px; /* Добавил отступ снизу */
+  }
+
+  .event-artist {
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin: 0;
+    color: white;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+    line-height: 1;
+    transform: translateY(10px);
+    opacity: 0;
+    animation: slideInUp 0.6s 0.4s ease-out forwards;
+  }
+
+  .event-date {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 8px 0 0;
+    transform: translateY(10px);
+    opacity: 0;
+    animation: slideInUp 0.6s 0.5s ease-out forwards;
+  }
+
+  .event-image-wrapper {
+    width: 100%;
+    height: 120px; /* Фиксированная высота для изображения */
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto;
+  }
+
+  .event-image {
+    height: 100%;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    object-position: center;
+    filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.3));
+    transform: scale(0.95);
+    animation: zoomIn 0.8s 0.2s ease-out forwards;
+  }
+
+  /* Анимации остаются без изменений */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideInUp {
+    from { 
+      transform: translateY(10px);
+      opacity: 0;
+    }
+    to { 
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideInDown {
+    from { 
+      transform: translateY(-10px);
+      opacity: 0;
+    }
+    to { 
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes popIn {
+    0% { 
+      transform: scale(0.9);
+      opacity: 0;
+    }
+    80% {
+      transform: scale(1.05);
+    }
+    100% { 
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes zoomIn {
+    from { 
+      transform: scale(0.95);
+      opacity: 0;
+    }
+    to { 
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+}
+
+
+/* Общие стили для контейнеров с горизонтальной прокруткой */
+.scrollable-container {
+  display: flex;
+  gap: 20px;
+  padding: 10px 0;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.scrollable-container::-webkit-scrollbar {
+  display: none;
+}
+
+.playlists-container,
+.artist-grid,
+.today-cards {
+  flex-wrap: nowrap;
+  padding-bottom: 20px;
+}
+
+.playlist-card,
+.artist-card,
+.today-card {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+}
+
+/* Кнопки прокрутки */
+.scroll-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.scroll-button {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.scroll-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Адаптация для мобильных устройств */
+@media (max-width: 768px) {
+  .home-page {
+
+    padding: 0;
+  }
+  .playlist-card {
+    width: 280px;
+  }
+  
+  .artist-card {
+    width: 260px;
+  }
+  
+  .today-card {
+    width: 240px;
+  }
+  
+  .scroll-buttons {
+    display: none;
+  }
+  
+  .scrollable-container {
+    padding-bottom: 10px;
+    gap: 15px;
+  }
+}
+
+/* Стили для блока "Рандом музик" */
+.wave-container {
+  position: relative;
+  margin: 40px 0;
+  padding: 50px;
+  border-radius: 24px;
+  background: linear-gradient(145deg, #1a1a1a 0%, #0d0d0d 100%);
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.wave-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+.wave-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 80% 50%, rgba(30, 215, 96, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 20% 30%, rgba(29, 185, 84, 0.05) 0%, transparent 30%);
+  z-index: 1;
+  animation: gradientShift 12s infinite alternate;
+}
+
+.wave-content {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.wave-text {
+  max-width: 60%;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.wave-title {
+  font-size: 36px;
+  font-weight: 800;
+  margin: 0;
+  background: linear-gradient(90deg, #1db954, #1ed760, #1db954);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.2;
+  animation: gradientFlow 4s linear infinite;
+}
+
+.wave-subtitle {
+  font-size: 17px;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 15px 0 0;
+  line-height: 1.5;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+.wave-button {
+  position: relative;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  width: 200px;
+  height: 65px;
+  overflow: hidden;
+  border-radius: 32px;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  animation: fadeInUp 0.8s ease-out 0.4s both;
+}
+
+.wave-button:hover {
+  transform: translateY(-3px) scale(1.02);
+}
+
+.wave-button:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+.wave-button-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: rgba(29, 185, 84, 0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(29, 185, 84, 0.25);
+  border-radius: 32px;
+  z-index: 3;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.wave-button:hover .wave-button-content {
+  background: rgba(29, 185, 84, 0.25);
+  border-color: rgba(29, 185, 84, 0.4);
+  box-shadow: 0 5px 15px rgba(29, 185, 84, 0.2);
+}
+
+.wave-button-content span {
+  font-size: 18px;
+  font-weight: 600;
+  color: white;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.wave-button:hover .wave-button-content span {
+  letter-spacing: 0.5px;
+}
+
+.wave-button-icon {
+  color: #1db954;
+  font-size: 22px;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
+}
+
+.wave-button:hover .wave-button-icon {
+  transform: scale(1.3) rotate(5deg);
+  color: #1ed760;
+}
+
+.wave-button-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #1db954, #1ed760, #1db954);
+  background-size: 200% auto;
+  opacity: 0.15;
+  z-index: 2;
+  animation: gradientFlow 4s linear infinite;
+  transition: opacity 0.3s ease;
+}
+
+.wave-button:hover .wave-button-background {
+  opacity: 0.2;
+}
+
+.wave-button-pulse {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(30, 215, 96, 0.4) 0%, transparent 70%);
+  transform: translate(-50%, -50%) scale(0);
+  border-radius: 50%;
+  z-index: 1;
+  opacity: 0;
+  transition: transform 0.6s ease-out, opacity 0.6s ease;
+}
+
+.wave-button:hover .wave-button-pulse {
+  transform: translate(-50%, -50%) scale(1.5);
+  opacity: 0.6;
+}
+
+.wave-visual {
+  position: absolute;
+  top: 50%;
+  right: -30px;
+  transform: translateY(-50%);
+  display: flex;
+  gap: 25px;
+  z-index: 2;
+}
+
+.wave-circle {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(29,185,84,0.12) 0%, rgba(29,185,84,0) 70%);
+  animation: pulse 4s infinite ease-in-out;
+  filter: blur(1px);
+}
+
+.wave-circle:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.wave-circle:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.wave-circle:nth-child(3) {
+  animation-delay: 0.8s;
+}
+
+.wave-disc {
+  position: absolute;
+  top: 50%;
+  right: 80px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0%,
+    rgba(30, 215, 96, 0.2) 30%,
+    transparent 70%
+  );
+  transform: translateY(-50%) rotate(0deg);
+  animation: discRotate 12s linear infinite;
+  z-index: 3;
+  filter: blur(0.5px);
+}
+
+.wave-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.wave-particle {
+  position: absolute;
+  background: rgba(30, 215, 96, 0.15);
+  border-radius: 50%;
+  animation: float 10s infinite linear;
+  filter: blur(1px);
+}
+
+/* Создаем частицы с разными позициями и размерами */
+.wave-particle:nth-child(1) {
+  top: 20%;
+  left: 10%;
+  width: 4px;
+  height: 4px;
+  animation-delay: 0s;
+  animation-duration: 15s;
+}
+
+.wave-particle:nth-child(2) {
+  top: 60%;
+  left: 15%;
+  width: 6px;
+  height: 6px;
+  animation-delay: 2s;
+  animation-duration: 12s;
+}
+
+.wave-particle:nth-child(3) {
+  top: 30%;
+  left: 80%;
+  width: 3px;
+  height: 3px;
+  animation-delay: 4s;
+}
+
+/* Добавляем остальные частицы аналогично... */
+
+/* Анимации */
+@keyframes pulse {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(0.8);
+    opacity: 0.6;
+  }
+}
+
+@keyframes discRotate {
+  0% {
+    transform: translateY(-50%) rotate(0deg);
+  }
+  100% {
+    transform: translateY(-50%) rotate(360deg);
+  }
+}
+
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes gradientShift {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  100% {
+    transform: scale(1.1) rotate(2deg);
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) translateX(20px);
+    opacity: 0;
+  }
+}
+
+/* Адаптация для мобильных устройств */
+@media (max-width: 768px) {
+  .wave-container {
+    padding: 30px 20px;
+    margin: 20px 0;
+  }
+  
+  .wave-text {
+    max-width: 100%;
+  }
+  
+  .wave-title {
+    font-size: 28px;
+  }
+  
+  .wave-subtitle {
+    font-size: 15px;
+  }
+  
+  .wave-visual {
+    display: none;
+  }
+  
+  .wave-button {
+    width: 170px;
+    height: 55px;
+  }
+  
+  .wave-button-content span {
+    font-size: 16px;
+  }
+}
