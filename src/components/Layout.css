@@ -1,0 +1,12 @@
+.layout {
+  margin-left: 20px; /* под сайдбар */
+  padding: 10px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+@media (max-width: 768px) {
+  .layout {
+    margin-left: 0px;
+    padding: 0px;
+  }
+}
