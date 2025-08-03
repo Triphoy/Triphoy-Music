@@ -51,21 +51,10 @@ const FullscreenPlayer: React.FC<FullscreenPlayerProps> = ({
   toggleLike
 }) => {
   const [isAnimating, setIsAnimating] = useState(false);
-  const [isMobileView, setIsMobileView] = useState(false);
   const progressBarRef = useRef<HTMLDivElement>(null);
   const [isDragging, setIsDragging] = useState(false);
   const coverRef = useRef<HTMLImageElement>(null);
 
-  // Проверка мобильного устройства
-  useEffect(() => {
-    const checkMobileView = () => {
-      setIsMobileView(window.innerWidth <= 768);
-    };
-
-    checkMobileView();
-    window.addEventListener('resize', checkMobileView);
-    return () => window.removeEventListener('resize', checkMobileView);
-  }, []);
 
   // Анимация вращения обложки при воспроизведении
   useEffect(() => {
