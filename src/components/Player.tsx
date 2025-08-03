@@ -13,7 +13,7 @@ import {
   FaTimes,
   FaExpand
 } from "react-icons/fa";
-import styles from "./Player.module.css";
+import styles from "./player.module.css";
 import FullscreenPlayer from "./FullscreenPlayer";
 import { usePlayer } from "../context/PlayerContext";
 
