@@ -3,7 +3,6 @@ import { supabase } from "../../lib/supabase";
 import Layout from "../../components/Layout";
 import { useSession } from "@supabase/auth-helpers-react";
 import { usePlayer } from "../../context/PlayerContext"; // импортируем хук
-import cover1 from "../Home/img/cover1.jpg";
 import styles from "./favorite.module.css";
 
 interface Track {
@@ -108,10 +107,11 @@ const Favorites: React.FC = () => {
                 style={{ cursor: "pointer" }} // чтобы было понятно, что можно кликать
               >
                 <img 
-                  src={track.cover_url || cover1} 
-                  alt={track.title} 
-                  className={styles.trackCover}
-                />
+  src={track.cover_url || ''} 
+  alt={track.title} 
+  className={styles.trackCover}
+/>
+
                 
                 <div className={styles.trackInfo}>
                   <div className={styles.trackTitle}>{track.title}</div>
